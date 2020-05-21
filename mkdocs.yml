@@ -1,0 +1,86 @@
+site_name: Infinities in my Brain
+site_description: Thoughts and prayers about mathematical objects
+site_author: Sudip Sinha
+site_url: https://SudipSinha.github.io/Infinities-in-my-Brain
+
+repo_name: SudipSinha/Infinities-in-my-Brain
+repo_url: https://github.com/SudipSinha/Infinities-in-my-Brain
+
+copyright: <a href="http://github.com/SudipSinha">Sudip Sinha</a> &copy; 2020 onwards
+
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.details
+  - pymdownx.magiclink:
+      provider: 'GitHub'
+      user: 'SudipSinha'
+      hide_protocol: true
+      repo_url_shortener: true
+      social_url_shorthand: true
+      repo_url_shorthand: true
+      social_url_shorthand: true
+  - pymdownx.mark
+  - pymdownx.critic
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight:
+      linenums: true
+      linenums_style: pymdownx-inline
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tabbed
+  - admonition
+  - footnotes
+  - toc:
+      permalink: true
+
+theme:
+  name: material
+  language: en
+  palette:
+    primary: light blue
+    accent: cyan
+  favicon: https://www.math.lsu.edu/favicon.ico
+  icon:
+    logo: fontawesome/solid/infinity
+    repo: fontawesome/brands/github
+
+extra_javascript:
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js    # Google Adsense
+
+plugins:
+  - search
+  - awesome-pages:
+      collapse_single_pages: true
+  - minify:
+      minify_html: true
+  - git-revision-date-localized:
+      type: iso_datetime
+
+google_analytics:
+  - UA-154154955-1
+  - auto
+
+extra:
+  disqus: SudipSinha
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/SudipSinha
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/sudipsinha
+    - icon: fontawesome/brands/facebook
+      link: https://www.facebook.com/SudipSinha
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/SudipSinha
+    - icon: fontawesome/brands/orcid
+      link: https://orcid.org/0000-0001-5188-1336
+    - icon: fontawesome/regular/envelope
+      link: mailto:SudipSinha.Bappa@Gmail.com

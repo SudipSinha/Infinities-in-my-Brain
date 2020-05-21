@@ -1,0 +1,5 @@
+# Sublime Text workspace files
+*.sublime-workspace
+
+# MkDocs
+site/
