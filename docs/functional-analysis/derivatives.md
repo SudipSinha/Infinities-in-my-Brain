@@ -83,28 +83,31 @@ The problem here is that there are two inputs. In the problems until now, there 
 
 One way to differentiate linear and quadratic functionals on a finite-dimensional vector space is to use a basis.
 
-In this section, let \( V \) be a \( d \)-dimensional real vector space. Fix a basis \( ℬ = \bcrl{e_1, …, e_d} \) for \( V \) so that we can express any \( x ∈ V \) as \( x = ∑_{i = 1}^d x_i e_i \) for some \( x_i ∈ ℝ \) for each \( i ∈ [d] \). This gives us an identification of \( V \) with \( ℝ^d \), and we can write the identification of \( x ∈ V \) as the column vector \( (x_1, …, x_d) ∈ ℝ^d \). Moreover, we shall use the notation \( ⋅^* \) to represents the transpose operation, and \( [d] = \bcrl{1, …, d} \).
+In this section, let \( V \) be a \( d \)-dimensional real vector space. Fix a basis \( ℬ = \bcrl{e_1, …, e_d} \) for \( V \) so that we can express any \( x ∈ V \) as \( x = ∑_{i = 1}^d x_i e_i \) for some \( x_i ∈ ℝ \) for each \( i ∈ [d] \). This gives us an identification of \( V \) with \( ℝ^d \), and we can write the identification of \( x ∈ V \) as the column vector \( (x_1, …, x_d) ∈ ℝ^d \). We shall use the notation \( ⋅^* \) to represents the transpose operation, and denote \( [d] = \bcrl{1, …, d} \).
 
 
 ???+ example "Linear functionals"
 
-    Let \( v ∈ V \) be fixed and \( m_v: V → ℝ: x ↦ x^* v \). Using the identification, we write \( v = (v_1, …, v_d) ∈ ℝ^d \). So our definition of \( m_v \) becomes \( m_v(x) = ∑_{i = 1}^d x_i v_i \). Now, \( \frac{∂m_v(x)}{∂x_j} = v_j \), so writing this in the [numerator layout convention](https://en.wikipedia.org/wiki/Matrix_calculus#Layout_conventions), we get
+    Let \( v ∈ V \) be fixed and \( m_v: V → ℝ: x ↦ \inn{x, v} \). Using the identification, we write \( v = (v_1, …, v_d) ∈ ℝ^d \). So our definition of \( m_v \) becomes \( m_v(x) = x^* v = ∑_{i = 1}^d x_i v_i \). Now, \( \frac{∂m_v(x)}{∂x_j} = v_j \), so writing this in the [numerator layout convention](https://en.wikipedia.org/wiki/Matrix_calculus#Layout_conventions), we get
 
     \[
         \frac{∂f(x)}{∂x}
         =  \begin{bmatrix}
                 v_1  &  ⋯  &  v_d
         \end{bmatrix}
-        =  v^* .
+        =  v^* ,
     \]
+
+    so we can write \( \frac{∂f(x)}{∂x} = \inn{v, ⋅} \).
 
 
 ???+ example "Quadratic forms"
 
-    Let \( f: V → ℝ: x ↦ x^* A x \), where \( T: V → V \) is a linear operator. In the basis \( ℬ \), the operator \( T \) has a unique matrix representative, say \( A = (a_{ij})_{i, j ∈ [d]} \). Therefore, we can write
+    Let \( f: V → ℝ: x ↦ \inn{x, T x} \), where \( T: V → V \) is a linear operator. In the basis \( ℬ \), the operator \( T \) has a unique matrix representative, say \( A = (a_{ij})_{i, j ∈ [d]} \). Therefore, we can write
 
     \begin{align*}
-        f(x)  & =  x^* T x  \\
+        f(x)  & =  \inn{x, T x}  \\
+            & =  x^* A x \\
             & =  ∑_{i = 1}^d x_i ∑_{j = 1}^d a_{ij} x_j  \\
             & =  ∑_{i = 1}^d ∑_{j = 1}^d x_i a_{ij} x_j  \\
             & =  ∑_{j ≠ k} x_k a_{kj} x_j + ∑_{i ≠ k} x_i a_{ik} x_k \\
@@ -138,8 +141,12 @@ In this section, let \( V \) be a \( d \)-dimensional real vector space. Fix a b
                     A_{1, ⋅}^*  &  ⋯  &  A_{d, ⋅}^*  \\
                     \end{bmatrix}
                 }  \\
-            & =  x^* \brnd{A + A^*} .
+            & =  x^* (A^* + A)  \\
+            & =  x^* \brnd{A + A^*}^* \\
+            & =  \brnd{(A + A^*) x}^* , \\
     \end{align*}
+
+    where in the penultimate steps we used the involution and anti-distributivity [properties of the adjoint](https://en.wikipedia.org/wiki/Hermitian_adjoint#Properties). Therefore, we can write \( \frac{∂f(x)}{∂x} = \inn{(A + A^*) x, ⋅} \).
 
 Note that our final results in both cases do not depend on the choice of the basis. So our intuition says that there should be basis-free ways of deriving the same results. We shall soon see that this is true.
 
