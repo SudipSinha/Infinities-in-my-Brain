@@ -1,0 +1,74 @@
+/* Definitions */
+.definition {
+  counter-increment: mathcounter;
+  display: block;
+  margin: 12px 0;
+  font-style: normal;
+}
+.definition::before {
+  content: 'Definition ' counter(mathcounter) '. ';
+  font-weight: bold;
+  font-style: normal;
+}
+
+
+/* Theorems */
+.lemma {
+  counter-increment: mathcounter;
+  display: block;
+  font-style: italic;
+}
+.lemma::before {
+  content: 'Lemma ' counter(mathcounter) '. ';
+  font-weight: bold;
+  font-style: normal;
+}
+
+.theorem {
+  counter-increment: mathcounter;
+  display: block;
+  font-style: italic;
+}
+.theorem::before {
+  content: 'Theorem ' counter(mathcounter) '. ';
+  font-weight: bold;
+  font-style: normal;
+}
+
+.corollary {
+  counter-increment: mathcounter;
+  display: block;
+  font-style: italic;
+}
+.corollary::before {
+  content: 'Corollary ' counter(mathcounter) '. ';
+  font-weight: bold;
+  font-style: normal;
+}
+
+.proposition {
+  counter-increment: mathcounter;
+  display: block;
+  font-style: italic;
+}
+.proposition::before {
+  content: 'Proposition ' counter(mathcounter) '. ';
+  font-weight: bold;
+  font-style: normal;
+}
+
+
+/* Proof */
+.proof {
+  display: block;
+  font-style: normal;
+  position: relative;
+}
+.proof::before {
+  content: 'Proof. ' attr(title);
+  font-style: italic;
+}
+.proof:after {
+  content: '◾️'; /*Or use ◻*/
+  position: absolute;
+}
