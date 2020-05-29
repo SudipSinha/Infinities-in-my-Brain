@@ -52,12 +52,18 @@ theme:
     repo: fontawesome/brands/github
 
 extra_javascript:
+  - javascripts/macros4mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - https://unpkg.com/mermaid@8.4.5/dist/mermaid.min.js
   - https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js    # Google Adsense
+
+extra_css:
+  - stylesheets/mathenvironments.css
 
 plugins:
   - search
+  - markdownmermaid
   - awesome-pages:
       collapse_single_pages: true
   - minify:
