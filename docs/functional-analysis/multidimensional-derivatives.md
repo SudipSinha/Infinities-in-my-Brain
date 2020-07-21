@@ -1,4 +1,4 @@
-#   Demystifying derivatives
+#   Demystifying multidimensional derivatives
 
 !!! warning
     This is still in draft mode. If you have any comments/suggestions, please email me so that I can improve on this.
@@ -34,14 +34,16 @@ Note that we can rewrite \eqref{def:derivative-1dim} as
     f(x + h) - f(x) - f'(x) h = o(h) ,
 \end{equation}
 
-where \( \frac{o(k)}{k} → 0 \) as \( k → 0 \).
+where \( \frac{o(k)}{k} → 0 \) as \( k → 0 \). See [Landau notations](https://en.wikipedia.org/wiki/Big_O_notation#Little-o_notation) for more details.
 
-That is, the *linearization* of the function \( f \) about the *fixed* point \( x \) is given by \( l_x(h) = f(x) + f'(x) h \). One way to understand \eqref{def:derivative-1dim-linear} is to think that the difference between the function and the linearization is *small* as we get *close* to \( x \).
+That is, the *linearization* of the function \( f \) about the *fixed* point \( x \) is given by \( l_x(h) = f(x) + f'(x) h \). An informal way to understand \eqref{def:derivative-1dim-linear} is to think that the difference between the function and the linearization is *small* as we get *close* to \( x \).
 
 Therefore, we could as easily have defined the derivative using \eqref{def:derivative-1dim-linear} instead of \eqref{def:derivative-1dim}. Are both the same, or should we prefer one over the other? As we saw, in \( 1 \)-dimension, both are equivalent. But in higher dimensions, these two perspectives sometimes give different results, and so it is important to understand both sides of the picture. This will be the point of the article.
 
 
 <!-- ### Properties of derivatives ==ToDo==
+
+####    The derivative of f points in the direction of steepest ascent of f.
 
 ####    Product rule
 
@@ -58,6 +60,8 @@ Therefore, we could as easily have defined the derivative using \eqref{def:deriv
  -->
 
 ##  Higher dimensions
+
+==TODO==
 
 Can we increase the dimension of the spaces we considered? Note that we have control over two spaces, the domain and the codomain. First, let us try to have a \( 2 \)-dimensional codomain.
 
@@ -85,23 +89,24 @@ One way to differentiate linear and quadratic functionals on a finite-dimensiona
 
 In this section, let \( V \) be a \( d \)-dimensional real vector space. Fix a basis \( ℬ = \bcrl{e_1, …, e_d} \) for \( V \) so that we can express any \( x ∈ V \) as \( x = ∑_{i = 1}^d x_i e_i \) for some \( x_i ∈ ℝ \) for each \( i ∈ [d] \). This gives us an identification of \( V \) with \( ℝ^d \), and we can write the identification of \( x ∈ V \) as the column vector \( (x_1, …, x_d) ∈ ℝ^d \). We shall use the notation \( ⋅^* \) to represents the transpose operation, and denote \( [d] = \bcrl{1, …, d} \).
 
+==TODO== Give motivation behind linear and quadratic forms.
 
 ???+ example "Linear functionals"
 
     Let \( v ∈ V \) be fixed and \( m_v: V → ℝ: x ↦ \inn{x, v} \). Using the identification, we write \( v = (v_1, …, v_d) ∈ ℝ^d \). So our definition of \( m_v \) becomes \( m_v(x) = x^* v = ∑_{i = 1}^d x_i v_i \). Now, \( \frac{∂m_v(x)}{∂x_j} = v_j \), so writing this in the [numerator layout convention](https://en.wikipedia.org/wiki/Matrix_calculus#Layout_conventions), we get
 
     \[
-        \frac{∂f(x)}{∂x}
+        \frac{∂m_v(x)}{∂x}
         =  \begin{bmatrix}
                 v_1  &  ⋯  &  v_d
         \end{bmatrix}
         =  v^* ,
     \]
 
-    so we can write \( \frac{∂f(x)}{∂x} = \inn{v, ⋅} \).
+    so we can write \( \frac{∂m_v(x)}{∂x} = \inn{⋅, v} \).
 
 
-???+ example "Quadratic forms"
+???+ example "Quadratic functionals"
 
     Let \( f: V → ℝ: x ↦ \inn{x, T x} \), where \( T: V → V \) is a linear operator. In the basis \( ℬ \), the operator \( T \) has a unique matrix representative, say \( A = (a_{ij})_{i, j ∈ [d]} \). Therefore, we can write
 
@@ -146,7 +151,7 @@ In this section, let \( V \) be a \( d \)-dimensional real vector space. Fix a b
             & =  \brnd{(A + A^*) x}^* , \\
     \end{align*}
 
-    where in the penultimate steps we used the involution and anti-distributivity [properties of the adjoint](https://en.wikipedia.org/wiki/Hermitian_adjoint#Properties). Therefore, we can write \( \frac{∂f(x)}{∂x} = \inn{(A + A^*) x, ⋅} \).
+    where in the penultimate steps we used the involution and anti-distributivity [properties of the adjoint](https://en.wikipedia.org/wiki/Hermitian_adjoint#Properties). Therefore, we can write \( \frac{∂f(x)}{∂x} = \inn{⋅, (A + A^*) x} \).
 
 Note that our final results in both cases do not depend on the choice of the basis. So our intuition says that there should be basis-free ways of deriving the same results. We shall soon see that this is true.
 
@@ -266,7 +271,7 @@ In what follows, \( V \) is a real Hilbert space.
     *Fréchet derivative*: Since the Gâteaux differential is linear in \( h \), the Fréchet derivative is the same as the Gâteaux differential. That is, \( Df(x): V → ℝ: h ↦ \inn{h, v} \). The proof is simply writing out the definition of the Fréchet derivative. Note that the derivative is independent of \( x \), as we should have expected.
 
 
-???+ example "Quadratic forms"
+???+ example "Quadratic functionals"
 
     Let \( f: V → ℝ: x ↦ \inn{x, T x} \), where \( T: V → V \) is a bounded linear operator.
 
@@ -316,9 +321,11 @@ The Fréchet differentiability is a stronger notion. The Fréchet derivative con
 
 The Gâteaux differentiability is a strictly weaker notion. The Gâteaux differential need not be linear, and its existence does not imply the existence of the Fréchet derivative. In fact, its existence at a point does not even guarantee the continuity of the function at that point. It gives us the rate of change of a function only in a particular direction. This rate of change is not just of the norm, but of the vector output itself. The Gâteaux differential only requires that the difference quotients converge along each direction individually, without making requirements about the rates of convergence for different directions. Thus, in order for a linear Gâteaux differential to imply the existence of the Fréchet derivative, the difference quotients have to converge *uniformly* for all directions.
 
+So even though Gâteaux differentiability is closer to the definition of the deriviative in \( 1 \)-dimensional spaces, the Fréchet derivative is closer to the true sprit of the derivative as it gives us a local linear approximation of the function.
+
 In general, in the infinite dimensional spaces, there are usually reasonably satisfactory results on the existence of Gâteaux differentials of Lipschitz functions. On the other hand, similar results on existence of Fréchet derivatives are rare and usually very hard to prove.
 
-Therefore, there are significant differences in the two derivates, and it seems to have its own pros and cons. In life, and even more so in mathematics, there is no free lunch. The choice among the two then depends on the requirement. In many applications, we *require* Fréchet derivatives as they provide genuine local linear approximations unlike the Gâteaux differentials.
+Therefore, there are significant differences in the two derivates, and it seems to have its own pros and cons. In life, and even more so in mathematics, there is no free lunch. The choice among the two then depends on the requirement. In many applications, we *require* Fréchet derivatives as they provides a genuine local linear approximations unlike the Gâteaux differentials.
 
 It is important to remember that if a function is Fréchet differentiable, then it is also Gâteaux differentiable, and the two derivatives are equal.
 
@@ -330,7 +337,7 @@ The following table highlights some of the differences.
 | computability | direct; ordinary differentiation rules | indirect; only verification possible |
 | direction     | dependent                              | independent                          |
 | linear        | not necessarily                        | yes                                  |
-| in ℝ^d        | directional derivatives                | total derivative / Jacobian          |
+| in \( ℝ^d \)  | directional derivatives                | total derivative / Jacobian          |
 
 
 <!-- # ToDo
@@ -365,7 +372,7 @@ Our goal is to get \( \hat{β} \) which minimizes the squared errors (\( ℓ^2 \
         & =  \frac12 \inn{β, X^* X β} - \inn{β, X^* y} + \frac12 \inn{y, y}  \\
 \end{align*}
 
-First, notice that \( X^* X \) is self-adjoint, that is, \( (X^* X)^* = X^* X \). Now, using the examples of linear and quadratic forms, we get the Fréchet derivative
+First, notice that \( X^* X \) is self-adjoint, that is, \( (X^* X)^* = X^* X \). Now, using the examples of linear and quadratic functionals, we get the Fréchet derivative
 
 \begin{align*}
     De(β) h  & =  \frac12 \inn{h, (X^* X + (X^* X)^*) β} - \inn{h, X^* y}  \\
@@ -388,6 +395,7 @@ Derivatives
 
 *   [Kevin Long's notes](http://www.math.ttu.edu/~klong/5311-spr09/diff.pdf)
 *   https://mathoverflow.net/questions/22255/usefulness-of-frechet-versus-Gâteaux-differentiability-or-something-in-between
+*   https://math.stackexchange.com/questions/23902/what-is-the-practical-difference-between-a-differential-and-a-derivative
 *   https://faculty.arts.ubc.ca/pschrimpf/526/calculus-526.pdf
 *   http://individual.utoronto.ca/jordanbell/notes/frechetderivatives.pdf
 *   https://en.wikipedia.org/wiki/Derivative
