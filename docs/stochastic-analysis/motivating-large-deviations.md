@@ -4,7 +4,7 @@
     We would like to understand why we need large deviation results. We shall first attempt to get such a result from (a stunted version of) the central limit theorem, see why it is not enough, and then go on to motivate Cramér's theorem using the Markov inequality.
 
 !!! info "Prerequisites"
-    I expect you to know elementary (measure-theoretic) probability theory. Knowledge of other topics are beneficial, but if not, you can look them up in the Wikipedia links that I have provided.
+    I expect you to know elementary probability theory. Knowledge of law of large numbers, central limit theorem, moment generating function, and Markov inequality is recommended, but can be looked up in the provided Wikipedia links.
 
 
 ## Problem setup
@@ -20,12 +20,16 @@ For a fixed \( ε \), the [weak law of large numbers](https://en.wikipedia.org/w
 
 ##  Small deviations and the central limit theorem
 
-Our first attempt would be to try use the central limit theorem. This theorem tells us how our goal \eqref{eq:goal} behaves for a certain class of \( ε \)s. In particular the theorem says that we can estimate the deviations from the mean when \( ε ∼ \frac{1}{\sqrt{n}} \). Let us see a stunted version of the central limit theorem, which requires the existence of the moment generating function of \( X_1 \).
+Our first attempt would be to try use the central limit theorem. This theorem tells us how our goal \eqref{eq:goal} behaves for a certain class of \( ε \)s. In particular the theorem says that we can estimate the deviations from the mean when \( ε ∼ \frac{1}{\sqrt{n}} \). To keep matters simple, let us see a stunted version of the central limit theorem. This version requires the existence of the moment generating function of \( X_1 \).
 
 !!! theorem
-    \( \lim_{n → ∞} ℙ\bcrl{\sqrt{n} \bar{X}_n ≤ z} = 𝒩_{σ^2}(z) \), where \( 𝒩_{σ^2} \) denotes the distribution function of the [Gaussian measure](https://en.wikipedia.org/wiki/Normal_distribution) with mean 0 and variance \( σ^2 \).
+    In the problem setup described above,
 
-???+ proof
+    \[ \lim_{n → ∞} ℙ\bcrl{\sqrt{n} \bar{X}_n ≤ z} = 𝒩_{σ^2}(z) , \]
+
+    where \( 𝒩_{σ^2} \) denotes the [distribution function](https://en.wikipedia.org/wiki/Cumulative_distribution_function) of the [Gaussian measure](https://en.wikipedia.org/wiki/Normal_distribution) with mean 0 and variance \( σ^2 \).
+
+??? proof
     Let \( Z = \sqrt{n} \bar{X}_n \) and \( M(λ) = 𝔼e^{λ X_1} \). Then, expanding the [Taylor series](https://en.wikipedia.org/wiki/Taylor_series) of \( M \) around \( 0 \), we get
 
     \[ M(λ) = 1 + M'(0) λ + \frac12 M''(0) λ^2 + o(λ^2) . \]
@@ -56,13 +60,13 @@ Our first attempt would be to try use the central limit theorem. This theorem te
 
 
 !!! note "On the word *stunted*"
-    We are calling the above version of the central limit theorem as *stunted* because we are stating and proving a strictly weaker version of the result. The actual central limit theorem can be written for any distribution, that is, there is no requirement for the moment generating function to exist. The proof of the general version uses a complex version of the moment generating function called the [characteristic function or Fourier transform](https://en.wikipedia.org/wiki/Characteristic_function_(probability_theory)).
+    We are calling the above version of the central limit theorem as *stunted* because we are stating and proving a strictly weaker version of the result. The general result can be written for any distribution, that is, there is no requirement for the moment generating function to exist. The proof of the general version uses a complex version of the moment generating function called the [characteristic function or Fourier transform](https://en.wikipedia.org/wiki/Characteristic_function_(probability_theory)).
 
 Using the central limit theorem, we can write
 
 \[ \lim_{n → ∞} ℙ\bcrl{\bar{X}_n ≥ \frac{z}{\sqrt{n}}} = 1 - 𝒩_{σ^2}\brnd{\frac{z}{\sqrt{n}}} . \]
 
-But can we use the central limit theorem to get the result we were looking for in the first place? The answer is no, because the central limit theorem only talks about the asymptotics when the fluctuations are of the order of \( \frac{1}{\sqrt{n}} \), which go to \( 0 \) as \( n → ∞ \). Therefore, this is not going to be helpful when we have a constant fluctuation. In this sense, the central limit theorem only works for *small deviations*.
+But can we use the central limit theorem to get the result we were looking for in the first place? The answer is no, because the central limit theorem only talks about the asymptotics when the deviations are of the order of \( \frac{1}{\sqrt{n}} \), which go to \( 0 \) as \( n → ∞ \). Therefore, this is not going to be helpful when we have a constant deviation. In this sense, the central limit theorem only works for *small deviations*.
 
 
 ##  Large deviations
@@ -84,14 +88,19 @@ so
 
 Now, since \( λ > 0 \) was arbitrary, it is true that
 
-\[ n^{-1} \log ℙ\bcrl{\bar{X}_n > ε} ≤ \inf_{λ > 0} \bcrl{-λ ε + \log M(λ)} = -\sup_{λ > 0} \bcrl{λ ε - \log M(λ)} . \]
+\begin{align*}
+    n^{-1} \log ℙ\bcrl{\bar{X}_n > ε}  & ≤  \inf_{λ > 0} \bcrl{-λ ε + \log M(λ)}  \\
+        & =  -\sup_{λ > 0} \bcrl{λ ε - \log M(λ)} .  \\
+\end{align*}
 
 Therefore, we obtained bounds of the form of an exponential decay in probabilities as a function of the deviation \( ε \).
 
 What we obtained is essentially the famous Cramér's theorem, which states that the stochastic process \( (\bar{X}_n) \) follows a large deviation principle with rate function \( Λ^*(ε) = \sup_{λ > 0} \bcrl{λ ε - \log M(λ)} \).
 
 !!! example "Cramér's theorem for Gaussian measures"
-    For Gaussian random variables with mean \( 0 \) and variance \( σ^2 \), we have \( M(λ) = e^{\frac12 λ^2 σ^2} \), so if \( f(λ) = λ ε - \log M(λ) \), then using calculus, we see that \( f \) attains its maximum at \( λ = \frac{ε}{σ^2} \), so \( Λ^*(ε) = \frac{ε^2}{2 σ^2} \).
+    For Gaussian random variables with mean \( 0 \) and variance \( σ^2 \), we have \( M(λ) = e^{\frac12 λ^2 σ^2} \), so if \( f(λ) = λ ε - \log M(λ) \), then using calculus, we see that \( f \) attains its maximum at \( λ = \frac{ε}{σ^2} \), and therefore \( Λ^*(ε) = \frac{ε^2}{2 σ^2} \).
+
+    Intuitively, this makes sense. If we have a larger deviation \( ε \), we expect the rate of probability falling to zero to be faster. Moreover, if the variance of the original random variables \( σ^2 \) is large, it is more likely that we can have a deviant result (slower rate). We see that the actual rate function is directly proportional to (the square of) the deviation and inversely proportional to (the square of) the variance.
 
 
 ##  References
