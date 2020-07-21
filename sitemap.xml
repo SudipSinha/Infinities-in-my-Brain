@@ -1,31 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
      <loc>https://SudipSinha.github.io/Infinities-in-my-Brain/</loc>
-     <lastmod>2020-05-29</lastmod>
+     <lastmod>2020-07-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://SudipSinha.github.io/Infinities-in-my-Brain/functional-analysis/derivatives/</loc>
-     <lastmod>2020-05-29</lastmod>
+     <loc>https://SudipSinha.github.io/Infinities-in-my-Brain/functional-analysis/multidimensional-derivatives/</loc>
+     <lastmod>2020-07-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://SudipSinha.github.io/Infinities-in-my-Brain/probability-theory/first-step-analysis/</loc>
-     <lastmod>2020-05-29</lastmod>
+     <lastmod>2020-07-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://SudipSinha.github.io/Infinities-in-my-Brain/probability-theory/quick-probability-theory/</loc>
-     <lastmod>2020-05-29</lastmod>
+     <lastmod>2020-07-21</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://SudipSinha.github.io/Infinities-in-my-Brain/stochastic-analysis/motivating-large-deviations/</loc>
+     <lastmod>2020-07-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://SudipSinha.github.io/Infinities-in-my-Brain/technical/math-blog-setup/</loc>
-     <lastmod>2020-05-29</lastmod>
+     <lastmod>2020-07-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://SudipSinha.github.io/Infinities-in-my-Brain/technical/chromebook-setup/</loc>
-     <lastmod>2020-05-29</lastmod>
+     <lastmod>2020-07-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://SudipSinha.github.io/Infinities-in-my-Brain/zero/a-story-of-numbers/</loc>
-     <lastmod>2020-05-29</lastmod>
+     <lastmod>2020-07-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
