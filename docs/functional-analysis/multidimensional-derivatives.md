@@ -71,7 +71,7 @@ We can do a "coordinate-wise" differentiation here. Let \( f(x) = (f_1(x), f_2(x
 
 \[ f'(x) = (f_1'(x), f_2'(x)) . \]
 
-???+ example "Traversing the unit circle"
+??? example "Traversing the unit circle"
     As an example of such function, let \( 𝕊^1 = \bcrl{(x_1, x_2) ∈ ℝ^2 : \norm{x}_2 = 1} \) be the unit circle, and \( θ ∈ 𝕋 = [0, 2π) \) represent anglular measures about the origin. Then there is a bijection between \( 𝕋 \) and \( 𝕊^1 \), that is given by \( f: 𝕋 → 𝕊^1: θ ↦ (\cos(θ), \sin(θ)) \). To calculate the rate of change of a particle's position with respect to changing angles, we can simple calculate the derivative of \( f \) at an angle \( θ \).
 
     \[ f'(θ) = (\cos'(θ), \sin'(θ)) = (-\sin(θ), \cos(θ)) . \]
@@ -91,7 +91,7 @@ In this section, let \( V \) be a \( d \)-dimensional real vector space. Fix a b
 
 ==TODO== Give motivation behind linear and quadratic forms.
 
-???+ example "Linear functionals"
+??? example "Linear functionals"
 
     Let \( v ∈ V \) be fixed and \( m_v: V → ℝ: x ↦ \inn{x, v} \). Using the identification, we write \( v = (v_1, …, v_d) ∈ ℝ^d \). So our definition of \( m_v \) becomes \( m_v(x) = x^* v = ∑_{i = 1}^d x_i v_i \). Now, \( \frac{∂m_v(x)}{∂x_j} = v_j \), so writing this in the [numerator layout convention](https://en.wikipedia.org/wiki/Matrix_calculus#Layout_conventions), we get
 
@@ -106,7 +106,7 @@ In this section, let \( V \) be a \( d \)-dimensional real vector space. Fix a b
     so we can write \( \frac{∂m_v(x)}{∂x} = \inn{⋅, v} \).
 
 
-???+ example "Quadratic functionals"
+??? example "Quadratic functionals"
 
     Let \( f: V → ℝ: x ↦ \inn{x, T x} \), where \( T: V → V \) is a linear operator. In the basis \( ℬ \), the operator \( T \) has a unique matrix representative, say \( A = (a_{ij})_{i, j ∈ [d]} \). Therefore, we can write
 
@@ -180,7 +180,7 @@ We can look at the problem in two ways. In Fréchet's way, we do not care about 
 !!! proposition
     \( L_x \) is unique.
 
-???+ proof
+??? proof
     Suppose not. That is, suppose there exists two such linear operators, say \( L_x \) and \( \tilde{L}_x \) that satisfy \eqref{def:Fréchet-derivative}. Therefore, we have
 
     \begin{align*}
@@ -239,7 +239,7 @@ In Euclidean spaces
 
 ### Finite-dimensional spaces
 
-???+ example "The absolute value function on ℝ"
+??? example "The absolute value function on ℝ"
 
     Let \( f: ℝ → ℝ: x ↦ \abs{x} \). If \( x = 0 \), then we have \( \lim_{t → 0} \frac{\abs{t h}}{t} \). If \( h > 0 \) then the limit is \( h \), and if \( h < 0 \) then the limit is \( -h \), which we combine to get the limit as \( \abs{h} \). Now, if \( x ≠ 0 \), then in the limit \( x + th \) will have the same sign as \( x \). Following the same logic as for \( x = 0 \), we get the derivative as \( h \frac{x}{\abs{x}} \). Therefore,
 
@@ -257,7 +257,7 @@ In Euclidean spaces
 
 In what follows, \( V \) is a real Hilbert space.
 
-???+ example "Linear functionals"
+??? example "Linear functionals"
     Let \( v ∈ V \) be fixed and \( m_v: V → ℝ: x ↦ \inn{x, v} \). Then
 
     *Gâteaux differential*
@@ -271,7 +271,7 @@ In what follows, \( V \) is a real Hilbert space.
     *Fréchet derivative*: Since the Gâteaux differential is linear in \( h \), the Fréchet derivative is the same as the Gâteaux differential. That is, \( \D f(x): V → ℝ: h ↦ \inn{h, v} \). The proof is simply writing out the definition of the Fréchet derivative. Note that the derivative is independent of \( x \), as we should have expected.
 
 
-???+ example "Quadratic functionals"
+??? example "Quadratic functionals"
 
     Let \( f: V → ℝ: x ↦ \inn{x, T x} \), where \( T: V → V \) is a bounded linear operator.
 
@@ -299,7 +299,7 @@ In what follows, \( V \) is a real Hilbert space.
 !!! proposition "Implications"
     Fréchet differentiability implies Gâteaux differentiability.
 
-???+ proof
+??? proof
 
     Assume \( f: V → W \) has Fréchet derivative \( \D f(x) \) at \( x ∈ V \). Now,
 
