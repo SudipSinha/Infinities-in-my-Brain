@@ -203,7 +203,7 @@ We can look at the problem in two ways. In Fréchet's way, we do not care about 
 
     Therefore, \( \tilde{L}_x = L_x \), and we are done.
 
-Since such an operator \( L_x \) is unique (if it exists), we write \( Df(x) = L_x \)  and call it the *Fréchet derivative* of \( f \) at \( x \).
+Since such an operator \( L_x \) is unique (if it exists), we write \( \D f(x) = L_x \)  and call it the *Fréchet derivative* of \( f \) at \( x \).
 
 
 ### Gâteaux differential
@@ -212,7 +212,7 @@ Since such an operator \( L_x \) is unique (if it exists), we write \( Df(x) = L
     Let \( V, W \) be [normed vector spaces](https://en.wikipedia.org/wiki/Normed_vector_space), and \( U ⊆ V \). The *Gâteaux differential* of a function \( f : U → W \) at \( x ∈ U \) in the direction \( v \) is defined as
 
     \begin{equation}  \label{def:Gâteaux-differential}
-        d_h f(x) = \lim_{t → 0} \frac{f(x + t v) - f(x)}{t} = \left. \frac{d}{d t} \right|_{t = 0} f(x + t v) .
+        \d_h f(x) = \lim_{t → 0} \frac{f(x + t v) - f(x)}{t} = \left. \frac{d}{d t} \right|_{t = 0} f(x + t v) .
     \end{equation}
 
     If the limit exists for all \( v ∈ V \), then we say that \( f \) is *Gâteaux differentiable* at \( x \).
@@ -222,10 +222,10 @@ Since such an operator \( L_x \) is unique (if it exists), we write \( Df(x) = L
     *   This approach is similar to the one used in \eqref{def:derivative-1dim}.
     *   The Gâteaux differential is unique if it exists, since the limit in the definition is unique if it exists.
     *   Existence of the Gâteaux differential does not guarantee continuity. See examples [here](https://en.wikipedia.org/wiki/Gateaux_derivative#Linearity_and_continuity).
-    *   The Gâteaux differential is related to the Fréchet derivative by \( d_h f(x) = Df(x) h \) (when both exist).
+    *   The Gâteaux differential is related to the Fréchet derivative by \( \d_h f(x) = \D f(x) h \) (when both exist).
     *   There is a Gâteaux differential for each direction. So in \( 1 \)-dimension real vector space, there are two (*left* and *right*) such derivatives, but in two or more dimensions or in any complex vector space, there are infinitely (uncountably) many.
     *    The Gâteaux differential is a \( 1 \)-dimensional calculation along a specified direction \( h \), so we can use our ordinary \( 1 \)-dimensional calculus to compute it. This makes computability much easier.
-    *    The fundamental theorem of calculus for Gâteaux differentials is \( f(x + h) - f(x) = ∫_0^1 d_h f(x + t h) d t \).
+    *    The fundamental theorem of calculus for Gâteaux differentials is \( f(x + h) - f(x) = ∫_0^1 \d_h f(x + t h) \d t \).
 
 ##  Special cases
 
@@ -243,7 +243,7 @@ In Euclidean spaces
 
     Let \( f: ℝ → ℝ: x ↦ \abs{x} \). If \( x = 0 \), then we have \( \lim_{t → 0} \frac{\abs{t h}}{t} \). If \( h > 0 \) then the limit is \( h \), and if \( h < 0 \) then the limit is \( -h \), which we combine to get the limit as \( \abs{h} \). Now, if \( x ≠ 0 \), then in the limit \( x + th \) will have the same sign as \( x \). Following the same logic as for \( x = 0 \), we get the derivative as \( h \frac{x}{\abs{x}} \). Therefore,
 
-    \[ d_h f(x) =
+    \[ \d_h f(x) =
         \begin{cases}
             h \frac{x}{\abs{x}}  &  \text{if } x ≠ 0  \\
             \abs{h}  &  \text{if } x = 0  \\
@@ -263,12 +263,12 @@ In what follows, \( V \) is a real Hilbert space.
     *Gâteaux differential*
 
     \begin{align*}
-        d_h m_v(x)  & =  \lim_{t → 0} \frac{m_v(x + t h) - m_v(x)}{t}  \\
+        \d_h m_v(x)  & =  \lim_{t → 0} \frac{m_v(x + t h) - m_v(x)}{t}  \\
             & =  \lim_{t → 0} \frac{\inn{\cancel{x} + \bcancel{t} h, v} - \cancel{\inn{x, v}}}{\bcancel{t}}  \\
             & =  \inn{h, v} . \\
     \end{align*}
 
-    *Fréchet derivative*: Since the Gâteaux differential is linear in \( h \), the Fréchet derivative is the same as the Gâteaux differential. That is, \( Df(x): V → ℝ: h ↦ \inn{h, v} \). The proof is simply writing out the definition of the Fréchet derivative. Note that the derivative is independent of \( x \), as we should have expected.
+    *Fréchet derivative*: Since the Gâteaux differential is linear in \( h \), the Fréchet derivative is the same as the Gâteaux differential. That is, \( \D f(x): V → ℝ: h ↦ \inn{h, v} \). The proof is simply writing out the definition of the Fréchet derivative. Note that the derivative is independent of \( x \), as we should have expected.
 
 
 ???+ example "Quadratic functionals"
@@ -278,7 +278,7 @@ In what follows, \( V \) is a real Hilbert space.
     *Gâteaux differential*
 
     \begin{align*}
-        d_h f(x)  & =  \lim_{t → 0} \frac{f(x + t h) - f(x)}{t}  \\
+        \d_h f(x)  & =  \lim_{t → 0} \frac{f(x + t h) - f(x)}{t}  \\
             & =  \lim_{t → 0} \frac{\inn{x + t h, T (x + t h)} - \inn{x, Tx}}{t}  \\
             & =  \lim_{t → 0} \frac{\cancel{\inn{x, T x}} + \bcancel{t} \inn{x, T h} + \bcancel{t} \inn{h, T x} + t^\bcancel{2} \inn{h, T h} - \cancel{\inn{x, T x}}}{\bcancel{t}}  \\
             & =  \inn{x, T h} + \inn{h, T x}  \\
@@ -289,7 +289,7 @@ In what follows, \( V \) is a real Hilbert space.
 
     where in the third last step, we have used the definition of [adjoint of an operator](https://en.wikipedia.org/wiki/Hermitian_adjoint).
 
-    *Fréchet derivative*: The linearity of the Gâteaux differential shows us that the Fréchet derivative is the same. In this case, \( Df(x): V → ℝ: h ↦ \inn{h, (T + T^*) x} \). Note the analogy with \( \frac{d (a x^2)}{d x} h = h (a + a) x \).
+    *Fréchet derivative*: The linearity of the Gâteaux differential shows us that the Fréchet derivative is the same. In this case, \( \D f(x): V → ℝ: h ↦ \inn{h, (T + T^*) x} \). Note the analogy with \( \frac{d (a x^2)}{d x} h = h (a + a) x \).
 
 
 ##  Summary
@@ -301,12 +301,12 @@ In what follows, \( V \) is a real Hilbert space.
 
 ???+ proof
 
-    Assume \( f: V → W \) has Fréchet derivative \( Df(x) \) at \( x ∈ V \). Now,
+    Assume \( f: V → W \) has Fréchet derivative \( \D f(x) \) at \( x ∈ V \). Now,
 
     \begin{align*}
-            &  \norm{\frac{f(x + t v) - f(x)}{t} - Df(x)(v)}_W  \\
-        = &  \frac{\norm{f(x + t v) - f(x) - Df(x)(v) t}_W}{\abs{t} \norm{v}_V} \norm{v}_V  \\
-        = &  \frac{\norm{f(x + t v) - f(x) - Df(x)(tv)}_W}{\norm{t v}_V} \norm{v}_V → 0 \\
+            &  \norm{\frac{f(x + t v) - f(x)}{t} - \D f(x)(v)}_W  \\
+        = &  \frac{\norm{f(x + t v) - f(x) - \D f(x)(v) t}_W}{\abs{t} \norm{v}_V} \norm{v}_V  \\
+        = &  \frac{\norm{f(x + t v) - f(x) - \D f(x)(tv)}_W}{\norm{t v}_V} \norm{v}_V → 0 \\
     \end{align*}
 
     as \( t → 0 \) since \( \norm{t v}_V → 0 \) as \( t → 0 \) and \( f \) is Fréchet differentiable.

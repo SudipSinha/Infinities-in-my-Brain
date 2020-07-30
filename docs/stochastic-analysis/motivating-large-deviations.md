@@ -9,18 +9,18 @@
 
 ## Problem setup
 
-Suppose we have a sequence of independent and identically distributed (IID) random variables, \( \bcrl{X_i: i ∈ ℕ} \). We further assume that \( X_1 \) has moments of all order, with mean \( 𝔼X_1 < ∞ \) and variance \( 𝕍X_1 = σ^2 < ∞ \). Since we can always subtract the mean from the original random variables to get a new set of random variables with \( 0 \) mean, we henceforth assume that \( 𝔼X_1 = 0 \) without any loss of generality. Denote the sample mean by \( \bar{X}_n = n^{-1} ∑_{i = 1}^n X_i \). Our goal is to find the probability of deviation of \( \bar{X}_n \) from \( \bar{x} \) as \( n → ∞ \). In particular, for some \( ε > 0 \), we would like to calculate
+Suppose we have a sequence of *independent and identically distributed* real-valued random variables, \( \bcrl{X_i: i ∈ ℕ} \), with mean \( 𝔼(X_1) < ∞ \) and variance \( 𝕍(X_1) = σ^2 < ∞ \). Since we can always subtract the mean from the original random variables to get a new set of random variables with \( 0 \) mean, we henceforth assume that \( 𝔼(X_1) = 0 \) without any loss of generality. Denote the *sample mean* by \( \bar{X}_n = n^{-1} ∑_{i = 1}^n X_i \). Our goal is to find the *probability of deviation* of \( \bar{X}_n \) from \( \bar{x} \) as \( n → ∞ \). In particular, for some \( ε > 0 \), we would like to calculate
 
 \begin{equation}  \label{eq:goal}
     \lim_{n → ∞} ℙ\bcrl{\bar{X}_n > ε} .
 \end{equation}
 
-For a fixed \( ε \), the [weak law of large numbers](https://en.wikipedia.org/wiki/Law_of_large_numbers) gives us \( \lim_{n → ∞} ℙ\bcrl{\abs{\bar{X}_n} > ε} = 0 \). But it does not say how quickly the limit approaches zero. Can we do better?
+For a fixed \( ε \), the [weak law of large numbers](https://en.wikipedia.org/wiki/Law_of_large_numbers) gives us \( \lim_{n → ∞} ℙ\bcrl{\abs{\bar{X}_n} > ε} = 0 \). But it does not say how the fast the probability goes to zero with respect to \( ε \). Our intuition should suggest that the rate of decrease should be much faster when \( ε = 2 \) as compared to \( ε = 1 \), which should in turn be faster as compared to when \( ε = \frac12 \). In fact, it is natural to expect the rate to be slower as \( ε \) gets closer to \( 0 \), and faster as \( ε \) gets farther away from \( 0 \). So the question is, can we get a more informative estimate?
 
 
 ##  Small deviations and the central limit theorem
 
-Our first attempt would be to try use the central limit theorem. This theorem tells us how our goal \eqref{eq:goal} behaves for a certain class of \( ε \)s. In particular the theorem says that we can estimate the deviations from the mean when \( ε ∼ \frac{1}{\sqrt{n}} \). To keep matters simple, let us see a stunted version of the central limit theorem. This version requires the existence of the moment generating function of \( X_1 \).
+Our first attempt would be to try use the central limit theorem. This theorem tells us how the limit \eqref{eq:goal} behaves for a certain class of deviations. In particular the theorem says that we can estimate the probability of deviations from the mean when the deviations scale as an order of \( n^{-\frac12} \), that is, \( ε ∼ \frac{1}{\sqrt{n}} \). To keep matters simple, let us see a stunted version of the central limit theorem. This version requires the existence of the moment generating function of \( X_1 \).
 
 !!! theorem
     In the problem setup described above,
@@ -30,27 +30,27 @@ Our first attempt would be to try use the central limit theorem. This theorem te
     where \( 𝒩_{σ^2} \) denotes the [distribution function](https://en.wikipedia.org/wiki/Cumulative_distribution_function) of the [Gaussian measure](https://en.wikipedia.org/wiki/Normal_distribution) with mean 0 and variance \( σ^2 \).
 
 ??? proof
-    Let \( Z = \sqrt{n} \bar{X}_n \) and \( M(λ) = 𝔼e^{λ X_1} \). Then, expanding the [Taylor series](https://en.wikipedia.org/wiki/Taylor_series) of \( M \) around \( 0 \), we get
+    Let \( Z = \sqrt{n} \bar{X}_n \) and \( M(λ) = 𝔼\brnd{e^{λ X_1}} \). Then, expanding the [Taylor series](https://en.wikipedia.org/wiki/Taylor_series) of \( M \) around \( 0 \), we get
 
     \[ M(λ) = 1 + M'(0) λ + \frac12 M''(0) λ^2 + o(λ^2) . \]
 
-    Now, \( M'(0) = 𝔼X_1 = 0 \) and \( M''(0) = 𝔼X_1^2 = σ^2 \), we have
+    Now, \( M'(0) = 𝔼(X_1) = 0 \) and \( M''(0) = 𝔼(X_1)^2 = σ^2 \), we have
 
     \[ M(λ) = 1 + \frac12 σ^2 λ^2 + o(λ^2) . \]
 
     Now, we calculate the moment generating function of \( \bar{X}_n \).
 
     \begin{align*}
-        M_{\bar{X}_n}(λ)  & =  𝔼e^{λ \bar{X}_n}  \\
-            & =  𝔼e^{∑_{i = 1}^n \fracλn X_i}  \\
-            & =  𝔼 ∏_{i = 1}^n e^{\fracλn X_i}  \\
-            & =  ∏_{i = 1}^n 𝔼 e^{\fracλn X_i}  \\
-            & =  ∏_{i = 1}^n 𝔼 e^{\fracλn X_1}  =  M\brnd{\fracλn}^n , \\
+        M_{\bar{X}_n}(λ)  & =  𝔼 \brnd{e^{λ \bar{X}_n}}  \\
+            & =  𝔼 \brnd{e^{∑_{i = 1}^n \fracλn X_i}}  \\
+            & =  𝔼 \brnd{∏_{i = 1}^n e^{\fracλn X_i}}  \\
+            & =  ∏_{i = 1}^n 𝔼 \brnd{e^{\fracλn X_i}}  \\
+            & =  ∏_{i = 1}^n 𝔼 \brnd{e^{\fracλn X_1}}  =  \brnd{M\brnd{\fracλn}}^n , \\
     \end{align*}
 
     where we used the independence of \( X_i \)s to interchange the expectation and the product, and used the indentical distribution assumption to get the same moment generating function for each.
 
-    Using the above, we get \( M_Z(λ) = 𝔼e^{λ Z} = 𝔼e^{\sqrt{n} λ \bar{X}_n} = M_{\bar{X}_n}(\sqrt{n} λ) = M\brnd{\frac{λ}{\sqrt{n}}}^n \).
+    Using the above, we get \( M_Z(λ) = 𝔼\brnd{e^{λ Z}} = 𝔼\brnd{e^{\sqrt{n} λ \bar{X}_n}} = M_{\bar{X}_n}(\sqrt{n} λ) = \brnd{M\brnd{\frac{λ}{\sqrt{n}}}}^n \).
 
     Finally, putting it all together, we get
 
@@ -59,14 +59,14 @@ Our first attempt would be to try use the central limit theorem. This theorem te
     Now since \( e^{\frac12 λ^2 σ^2} \) is the moment generating function of a Gaussian measure, and convergence of moment generating functions imply convergence of distribution, our proof is complete.
 
 
-!!! note "On the word *stunted*"
+??? note "On the word *stunted*"
     We are calling the above version of the central limit theorem as *stunted* because we are stating and proving a strictly weaker version of the result. The general result can be written for any distribution, that is, there is no requirement for the moment generating function to exist. The proof of the general version uses a complex version of the moment generating function called the [characteristic function or Fourier transform](https://en.wikipedia.org/wiki/Characteristic_function_(probability_theory)).
 
 Using the central limit theorem, we can write
 
 \[ \lim_{n → ∞} ℙ\bcrl{\bar{X}_n ≥ \frac{z}{\sqrt{n}}} = 1 - 𝒩_{σ^2}\brnd{\frac{z}{\sqrt{n}}} . \]
 
-But can we use the central limit theorem to get the result we were looking for in the first place? The answer is no, because the central limit theorem only talks about the asymptotics when the deviations are of the order of \( \frac{1}{\sqrt{n}} \), which go to \( 0 \) as \( n → ∞ \). Therefore, this is not going to be helpful when we have a constant deviation. In this sense, the central limit theorem only works for *small deviations*.
+But can we use the central limit theorem to get the result we were looking for in the first place? The answer is no, because the central limit theorem only talks about the asymptotics when the deviations are of the order of \( n^{-\frac12} \), which go to \( 0 \) as \( n → ∞ \). Therefore, this is not going to be helpful when we have a constant deviation. In this sense, the central limit theorem only works for *small deviations*.
 
 
 ##  Large deviations
@@ -77,7 +77,7 @@ For an arbitrary *tuning parameter* \( λ > 0 \), we have
 
 \begin{align*}
     ℙ\bcrl{\bar{X}_n > ε}  & =  ℙ\bcrl{e^{n λ \bar{X}_n} > e^{n λ ε}}  \\
-        & ≤  e^{-n λ ε} 𝔼e^{n λ \bar{X}_n}  \\
+        & ≤  e^{-n λ ε} 𝔼\brnd{e^{n λ \bar{X}_n}}  \\
         & =  e^{-n λ ε} M_{\bar{X}_n}(n λ)  \\
         & =  \brnd{e^{-λ ε} M(λ)}^n ,  \\
 \end{align*}
@@ -95,12 +95,28 @@ Now, since \( λ > 0 \) was arbitrary, it is true that
 
 Therefore, we obtained bounds of the form of an exponential decay in probabilities as a function of the deviation \( ε \).
 
-What we obtained is essentially the famous Cramér's theorem, which states that the stochastic process \( (\bar{X}_n) \) follows a large deviation principle with rate function \( Λ^*(ε) = \sup_{λ > 0} \bcrl{λ ε - \log M(λ)} \).
+What we derived is essentially an intuition behind the famous [Cramér's theorem](https://en.wikipedia.org/wiki/Cram%C3%A9r%27s_theorem_(large_deviations)), which states the following.
+
+!!! theorem "Cramér (1938)"
+    The stochastic process \( (\bar{X}_n) \) follows a large deviation principle with rate function \( Λ^*(ε) = \sup_{λ > 0} \bcrl{λ ε - \log M(λ)} \). That is, the following hold.
+
+    *   (*upper bound*)  For every closed set \( F \), we have
+
+        \[ \limsup_{n → ∞} n^{-1} \log ℙ\bcrl{\bar{X}_n > ε}  ≤  - \inf_{x ∈ F} Λ^*(x) . \]
+
+    *   (*lower bound*)  For every open set \( G \), we have
+
+        \[ \liminf_{n → ∞} n^{-1} \log ℙ\bcrl{\bar{X}_n > ε}  ≥  - \inf_{x ∈ G} Λ^*(x) . \]
+
+To point out the the exponential decay explicitly, we informally write \( ℙ\bcrl{\bar{X}_n ∈ \d x} ≍ e^{-n Λ^*(x)} \d x \) for \( x ∈ ℝ \), where \( ≍ \) denotes asympototic behavior.
 
 !!! example "Cramér's theorem for Gaussian measures"
     For Gaussian random variables with mean \( 0 \) and variance \( σ^2 \), we have \( M(λ) = e^{\frac12 λ^2 σ^2} \), so if \( f(λ) = λ ε - \log M(λ) \), then using calculus, we see that \( f \) attains its maximum at \( λ = \frac{ε}{σ^2} \), and therefore \( Λ^*(ε) = \frac{ε^2}{2 σ^2} \).
 
     Intuitively, this makes sense. If we have a larger deviation \( ε \), we expect the rate of probability falling to zero to be faster. Moreover, if the variance of the original random variables \( σ^2 \) is large, it is more likely that we can have a deviant result (slower rate). We see that the actual rate function is directly proportional to (the square of) the deviation and inversely proportional to (the square of) the variance.
+
+!!! warning "On the usage of the words *large* and *small*"
+    Note that we did not use *small* deviation to mean a *small* value of the deviation, but to signify deviations that asymptotically go to zero. Similarly, we did not use *large* deviation to mean that the deviation is itself a large value, rather we use it to indicate that there is no requirement for the deviations to asymptotically tend to zero.
 
 
 ##  References
