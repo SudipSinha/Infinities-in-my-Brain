@@ -145,7 +145,7 @@ which is exactly the kind of formula that we were looking for.
 
 This note is partially based on the following resources.
 
-[^Steele2001]: [J. Michael Steele, Stochastic Calculus and Financial Applications, 2001, §1.1](https://doi.org/10.1007/978-1-4684-9305-4)
+[^Steele2001]: [J. Michael Steele, Stochastic Calculus and Financial Applications, 2001](https://doi.org/10.1007/978-1-4684-9305-4), §1.1
 [^Chen2018]:  [Yen-Chi Chen's notes, §3.5](http://faculty.washington.edu/yenchic/18A_stat516/Lec3_DTMC_p1.pdf)
 [^Fewster]: [Rachel Fewster's notes, §8.12](https://www.stat.auckland.ac.nz/~fewster/325/notes/ch8.pdf)
 [^recurrence-vs-recursive]: Still not sure what I should call this. See [MathSx931035](https://math.stackexchange.com/questions/931035/recurrence-vs-recursive).

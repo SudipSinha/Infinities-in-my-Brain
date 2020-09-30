@@ -46,6 +46,14 @@ Our first attempt would be to try use the [central limit theorem](https://en.wik
 
     where \( 𝒩_{σ^2} \) denotes the [distribution function](https://en.wikipedia.org/wiki/Cumulative_distribution_function) of the [Gaussian measure](https://en.wikipedia.org/wiki/Normal_distribution) with mean 0 and variance \( σ^2 \).
 
+<div class="theorem" text='central limit theorem'>
+In the problem setup described above,
+
+\[ \lim_{n → ∞} ℙ\bcrl{\sqrt{n} \overline{X}_n ≤ z} = 𝒩_{σ^2}(z) , \]
+
+where \( 𝒩_{σ^2} \) denotes the [distribution function](https://en.wikipedia.org/wiki/Cumulative_distribution_function) of the [Gaussian measure](https://en.wikipedia.org/wiki/Normal_distribution) with mean 0 and variance \( σ^2 \).
+</div>
+
 ???+ proof
     Let \( Z = \sqrt{n} \overline{X}_n \) and \( M(λ) = 𝔼\brnd{e^{λ X_1}} \). Then, expanding the [Taylor series](https://en.wikipedia.org/wiki/Taylor_series) of \( M \) around \( 0 \), we get
 
@@ -122,11 +130,11 @@ We essentially derived an intuition behind the famous [Cramér's theorem](https:
 
     *   (*upper bound*)  For every closed set \( F \), we have
 
-        \[ \limsup_{n → ∞} \frac1n \log ℙ\bcrl{\overline{X}_n > ε}  ≤  - \inf_{x ∈ F} Λ^*(x) . \]
+        \[ \limsup_{n → ∞} \frac1n \log ℙ\bcrl{\overline{X}_n ∈ F}  ≤  - \inf_{x ∈ F} Λ^*(x) . \]
 
     *   (*lower bound*)  For every open set \( G \), we have
 
-        \[ \liminf_{n → ∞} \frac1n \log ℙ\bcrl{\overline{X}_n > ε}  ≥  - \inf_{x ∈ G} Λ^*(x) . \]
+        \[ \liminf_{n → ∞} \frac1n \log ℙ\bcrl{\overline{X}_n ∈ G}  ≥  - \inf_{x ∈ G} Λ^*(x) . \]
 
 ??? note "Why \( \inf \) of the rate function?"
     In large deviation statements, the bounds are taken over sets rather than intervals. Therefore, we need to understand how the rate depends on the points in the set. Since we want the *worst estimate*, we take the infimum of the rate function over the set to get the *slowest rate*.

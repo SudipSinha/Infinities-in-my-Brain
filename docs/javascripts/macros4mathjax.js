@@ -17,8 +17,11 @@ window.MathJax = {
 			pair: [" \\left⟨ #1 \\right⟩ ", 1],
 			floor: [" \\left⌊ #1 \\right⌋ ", 1],
 			ceil: [" \\left⌈ #1 \\right⌉ ", 1],
+			// Differentials
 			d: ["\\mathrm{d}"],
 			D: ["\\mathrm{D}"],
+			// Miscellaneous
+			inv: ["{#1}^{-1}", 1],
 		}
 	}
 };

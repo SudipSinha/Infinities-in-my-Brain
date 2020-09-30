@@ -2,3 +2,5 @@ title: stochastic analysis
 
 arrange:
   - motivating-large-deviations.md
+  - exponential-equivalence.md
+  - strategies.md

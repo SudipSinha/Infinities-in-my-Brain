@@ -10,6 +10,9 @@
   font-weight: bold;
   font-style: normal;
 }
+.definition[text]::before {
+  content: 'Definition ' counter(mathcounter) ' (' attr(text) '). ';
+}
 
 
 /* Theorems */
@@ -23,6 +26,10 @@
   font-weight: bold;
   font-style: normal;
 }
+.lemma[text]::before {
+  content: 'Lemma ' counter(mathcounter) ' (' attr(text) '). ';
+}
+
 
 .theorem {
   counter-increment: mathcounter;
@@ -34,6 +41,10 @@
   font-weight: bold;
   font-style: normal;
 }
+.theorem[text]::before {
+  content: 'Theorem ' counter(mathcounter) ' (' attr(text) '). ';
+}
+
 
 .corollary {
   counter-increment: mathcounter;
@@ -45,6 +56,10 @@
   font-weight: bold;
   font-style: normal;
 }
+.corollary[text]::before {
+  content: 'Corollary ' counter(mathcounter) ' (' attr(text) '). ';
+}
+
 
 .proposition {
   counter-increment: mathcounter;
@@ -56,10 +71,13 @@
   font-weight: bold;
   font-style: normal;
 }
+.proposition[text]::before {
+  content: 'Proposition ' counter(mathcounter) ' (' attr(text) '). ';
+}
 
 
 /* Proof */
-.proof {
+/*.proof {
   display: block;
   font-style: normal;
   position: relative;
@@ -69,6 +87,7 @@
   font-style: italic;
 }
 .proof:after {
-  content: '◾️'; /*Or use ◻*/
+  content: '◻';
   position: absolute;
 }
+*/

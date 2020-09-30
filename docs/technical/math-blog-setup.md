@@ -214,6 +214,14 @@ The [Python Markdown extensions](https://facelessuser.github.io/pymdown-extensio
 And we are done!
 
 
+##  ==ToDo==
+
+*   Theorem environments
+    -   https://felix11h.github.io/blog/mathjax-theorems
+    -   http://drz.ac/2013/01/17/latex-theorem-like-environments-for-the-web/
+    -   http://math.chapman.edu/~jipsen/latexmathjax/index.html
+
+
 ##  References
 
 The links throughout the recipe were immensely helpful for me to set up the website (and create this document). I highly recommend you visit these sources for a better understanding of the processes and to customize the blog according to your tastes.

@@ -67,3 +67,30 @@
 *   ConTeXt
     *   [`ConTeXt LMTK`](https://wiki.contextgarden.net/ConTeXt_LMTX): `tikz` did not work for me, so sticking to [`ConTeXt Mark VI`](https://wiki.contextgarden.net/Mark_IV#Mark_VI).
     *   Document viewer: `sudo apt install evince`. This is required for `simple_ConTeXt` to automatically show the PDF after building.
+
+*   LaTeX
+    *   Install the following collections
+
+    ===============================================================================
+    a [X] Essential programs and files      w [ ] Italian                         
+    b [ ] BibTeX additional styles          x [ ] Japanese                        
+    c [ ] TeX auxiliary programs            y [ ] Korean                                      
+    d [X] ConTeXt and packages              z [ ] Other languages                             
+    e [ ] Additional fonts                  A [ ] Polish                          
+    f [X] Recommended fonts                 B [ ] Portuguese                      
+    g [X] Graphics and font utilities       C [ ] Spanish                         
+    h [ ] Additional formats                D [X] LaTeX fundamental packages                  
+    i [ ] Games typesetting                 E [ ] LaTeX additional packages                   
+    j [ ] Humanities packages               F [X] LaTeX recommended packages                  
+    k [ ] Arabic                            G [X] LuaTeX packages                 
+    l [ ] Chinese                           H [X] MetaPost and Metafont packages              
+    m [ ] Chinese/Japanese/Korean (base)    I [ ] Music packages                  
+    n [ ] Cyrillic                          J [X] Graphics, pictures, diagrams    
+    o [ ] Czech/Slovak                      K [ ] Plain (La)TeX packages          
+    p [X] US and UK English                 L [ ] PSTricks                        
+    s [ ] Other European languages          M [ ] Publisher styles, theses, etc.  
+    t [ ] French                            N [ ] Windows-only support programs   
+    u [ ] German                            O [ ] XeTeX and packages              
+    v [ ] Greek                            
+    P [X] Mathematics, natural sciences, computer science packages
+    S [ ] TeXworks editor; TL includes only the Windows binary       
